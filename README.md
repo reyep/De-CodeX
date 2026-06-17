@@ -23,5 +23,5 @@ De-CodeX has been tested and is designed to run exclusively on Linux.
 ### 1. Clone the repository
 Open your terminal and run:
 ```bash
-git clone [https://github.com/YOUR_GITHUB_USERNAME/De-CodeX.git](https://github.com/YOUR_GITHUB_USERNAME/De-CodeX.git)
+git clone [https://github.com/reyep/De-CodeX.git](https://github.com/reyep/De-CodeX.git)
 cd De-CodeX
