@@ -17,7 +17,7 @@ def print_banner():
 | |_| |  __/  | |__| (_) | (_| |  __/ /  \  
 |____/ \___|___\____\___/ \__,_|\___|/_/\_\ 
           |_____|                           
-    [bold cyan]v1.0 - Professional Auto-Decoder & Encoder CLI[/bold cyan]
+    [bold cyan]v1.0 - Professional Encoder & Auto-Decoder CLI[/bold cyan]
     [bold yellow]Created by: Reyep[/bold yellow]
     """
     console.print(banner, style="bold green")
