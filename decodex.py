@@ -11,16 +11,23 @@ console = Console()
 
 def print_banner():
     banner = r"""
- ____           ____          _      __  __ 
-|  _ \  ___    / ___|___   __| | ___ \ \/ / 
-| | | |/ _ \  | |   / _ \ / _` |/ _ \ \  /  
-| |_| |  __/  | |__| (_) | (_| |  __/ /  \  
-|____/ \___|___\____\___/ \__,_|\___|/_/\_\ 
-          |_____|                           
+ ____            ____           _      __  __ 
+|  _ \  ___     / ___|___    __| | ___ \ \/ / 
+| | | |/ _ \   | |   / _ \  / _` |/ _ \ \  /  
+| |_| |  __/   | |__| (_) || (_| |  __/ /  \  
+|____/ \___|___\____\___/  \__,_|\___|/_/\_\ 
+           |_____|                           
     [bold cyan]v1.0 - Professional Encoder & Auto-Decoder CLI[/bold cyan]
     [bold yellow]Created by: Reyep[/bold yellow]
     """
+    # Aggiunti due newline dopo il banner per spaziare
     console.print(banner, style="bold green")
+    console.print("\n\n")
+
+def print_goodbye():
+    console.print("\n[bold yellow]Exiting De-CodeX...[/bold yellow]")
+    console.print("[bold cyan]Tool created by: Reyep[/bold cyan]")
+    console.print("[bold yellow]Hope to see you soon! 👋[/bold yellow]\n")
 
 def auto_decode(data):
     data = data.strip().replace("│", "").replace("┃", "")
@@ -86,7 +93,7 @@ def main():
     print_banner()
     while True:
         try:
-            console.print("\n[bold cyan]==============================================[/bold cyan]")
+            console.print("[bold cyan]==============================================[/bold cyan]")
             console.print("[bold white][1][/bold white] 🔒 Encode")
             console.print("[bold white][2][/bold white] 🔓 Auto-Decode")
             console.print("[bold white][3][/bold white] ❌ Exit\n")
@@ -101,32 +108,33 @@ def main():
                 plain_text = console.input("\n[bold yellow]Enter the text you want to encrypt: [/bold yellow]")
                 if not plain_text: continue
                 cipher_type, result = encode_data(plain_text, method)
-                table = Table(title="De-CodeX Encryption Results", title_style="bold underline magenta")
+                table = Table(title="De-CodeX Results", title_style="bold underline magenta")
                 table.add_column("Property", style="cyan", no_wrap=True)
                 table.add_column("Value", style="green", overflow="fold", no_wrap=False, ratio=1)
                 table.add_row("Chosen Method", cipher_type)
                 table.add_row("Encoded Output", result)
                 console.print("\n", Panel(table, expand=True, border_style="bold green"))
-                console.print("\n[bold yellow]📋 Clean Output for Copy (Triple-click line below):[/bold yellow]\n", result)
+                console.print("\n[bold yellow]📋 Clean Output:[/bold yellow]\n", result, "\n")
                 
             elif mode == "2":
                 secret = console.input("\n[bold yellow]Enter the mysterious string to analyze: [/bold yellow]")
                 if not secret: continue
                 with console.status("[bold green]Analyzing and cracking...[/bold green]"):
                     cipher_type, result = auto_decode(secret)
-                table = Table(title="De-CodeX Decryption Results", title_style="bold underline magenta")
+                table = Table(title="De-CodeX Results", title_style="bold underline magenta")
                 table.add_column("Property", style="cyan", no_wrap=True)
                 table.add_column("Value", style="green", overflow="fold", no_wrap=False, ratio=1)
                 table.add_row("Detected Cipher", cipher_type)
                 table.add_row("Decoded Output", result)
                 console.print("\n", Panel(table, expand=True, border_style="bold blue"))
-                console.print("\n[bold yellow]📋 Clean Output for Copy (Triple-click line below):[/bold yellow]\n", result)
+                console.print("\n[bold yellow]📋 Clean Output:[/bold yellow]\n", result, "\n")
 
             elif mode == "3":
-                console.print("\n[yellow]Exiting De-CodeX... Goodbye![/yellow]\n")
+                print_goodbye()
                 sys.exit(0)
         except KeyboardInterrupt:
-            console.print("\n\n[bold red][!] Interrupted by user (Ctrl+C)[/bold red]\n")
+            console.print("\n\n[bold red][!] Interrupted by user (Ctrl+C)[/bold red]")
+            print_goodbye()
             sys.exit(0)
 
 if __name__ == "__main__":
