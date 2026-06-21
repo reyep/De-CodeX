@@ -36,6 +36,7 @@ Clone the repository using the terminal:
 
 ```bash
 git clone [https://github.com/reyep/De-CodeX.git](https://github.com/reyep/De-CodeX.git)
+
 cd De-CodeX
 ```
 
