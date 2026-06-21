@@ -32,18 +32,23 @@ De-CodeX is designed to be lightweight and cross-platform.
 Prerequisites
 Make sure you have Python 3.x installed. The tool requires the rich library for the graphical interface.
 
+
 Bash
 pip install rich
+
 Cloning the repository
 Clone the repository using the terminal:
+
 
 Bash
 git clone https://github.com/reyep/De-CodeX.git
 cd De-CodeX
+
 Run the tool
 Start the engine by running:
 
 Bash
 python3 decodex.py
+
 🔒 Security Note
 This is the first stable release (v1.0). We have introduced rigorous security checks to ensure the tool can be used in complex analysis environments without the risk of injections or memory exhaustion. This tool is intended for educational purposes, research, and CTF challenges.
